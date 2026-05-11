@@ -78,7 +78,7 @@ public class DashboardPanel extends JPanel {
 
         JLabel l = new JLabel(label.toUpperCase());
         l.setForeground(Theme.MUTED);
-        l.setFont(new Font("SansSerif", Font.BOLD, 11));
+        l.setFont(new Font("SansSerif", Font.BOLD, 14));
 
         JLabel v = new JLabel(value);
         v.setForeground(accent);

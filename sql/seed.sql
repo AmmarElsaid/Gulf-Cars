@@ -24,21 +24,30 @@ INSERT INTO Employee (Name,PhoneNumber,Email,HireDate, Salary,BranchID,EmployeeT
 ('Rashid Ali','+271551110003','rashid@gulfcars.ae','2020-02-10',11000.00,1,'Mechanic'),
 ('Yousef Tariq','+27155111004','yousef@gulfcars.ae','2023-05-20',8500.00,3,'Mechanic');
 
-INSERT INTO RentalAgent (EmployeeID, AgentLevel, CustomerServiceRating) VALUES (1,'Senior',4.80),(2,'Lead',4.95);
-INSERT INTO Mechanic (EmployeeID, Specialisation, Certificationlevel) VALUES (3,'Engine & Transmission','Master'),(4,'Bodywork','Certified');
+-- AgentLevel must be one of: Junior, Intermediate, Senior
+INSERT INTO RentalAgent (EmployeeID, AgentLevel, CustomerServiceRating) VALUES
+(1,'Senior',4.80),
+(2,'Senior',4.95);
+
+-- CertificationLevel must be one of: Basic, Intermediate, Advanced, Master
+INSERT INTO Mechanic (EmployeeID, Specialisation, CertificationLevel) VALUES
+(3,'Engine & Transmission','Master'),
+(4,'Bodywork','Advanced');
 
 UPDATE Branch SET ManagerID=2 WHERE BranchID=2;
 UPDATE Branch SET ManagerID=1 WHERE BranchID=1;
 
+-- CategoryType must be one of: Economy, Compact, SUV, Luxury, Van, Truck
 INSERT INTO Vehicle (SupplierID, Make, Model, Year, LicensePlate, VIN, Status, Mileage, CategoryType) VALUES
 (1,'Toyota','Land Cruiser',2023,'DXB-A-1001','VIN0001LC23','Available',15400,'SUV'),
 (1,'Nissan','Patrol',2024,'DXB-B-1002','VIN0002NP24','Rented',8200,'SUV'),
-(2,'BMW','5 Series',2023,'AUH-C-1003','VIN0003BM23','Available',22100,'Sedan'),
-(2,'Mercedes','G-Wagon',2024,'DXB-D-1004','VIN0004MG24','Maintenance',5400,'Luxury SUV'),
+(2,'BMW','5 Series',2023,'AUH-C-1003','VIN0003BM23','Available',22100,'Luxury'),
+(2,'Mercedes','G-Wagon',2024,'DXB-D-1004','VIN0004MG24','Maintenance',5400,'Luxury'),
 (1,'Hyundai','Elantra',2022,'SHJ-E-1005','VIN0005HE22','Available',41000,'Economy');
 
+-- BookingStatus must be one of: Pending, Confirmed, Cancelled, Completed
 INSERT INTO Booking (CustomerID, VehicleID, PickupDate, ReturnDate, BookingStatus) VALUES
-(1,2,'2025-04-20','2025-04-25','Active'),
+(1,2,'2025-04-20','2025-04-25','Confirmed'),
 (2,3,'2025-05-10','2025-05-15','Confirmed');
 
 INSERT INTO RentalContract (CustomerID, VehicleID, EmployeeID, StartDate, EndDate, TotalRentFee, DepositAmount, ContractStatus) VALUES
